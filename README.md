@@ -20,5 +20,15 @@ See more about OrigoDB on the project page: http://devrexlabs.github.io/
 * Operates on instance fields unless marked with `NonSerializedAttribute`
 * Includes inherited fields
 * Includes compiler generated fields
-* Writes unformatted Json (no indentation) or Bson, your choice
+* Writes unformatted Json (no indentation)
+
+## Usage
+
+```csharp
+IFormatter formatter = new JsonNetFormatter();
+MemoryStream ms = new MemoryStream(); // or any other kind of stream...
+formatter.Serialize(ms, someObjectRef);
+ms.Position = 0;
+object clone = formatter.Deserialize(ms);
+```
 
