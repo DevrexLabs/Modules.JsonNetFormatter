@@ -8,9 +8,8 @@ OrigoDB snapshots are arbitrarily complex object graphs. Deserialization needs t
 The major benefits are readability, interoperability and maintainability. But performance in general is probably better too. You should run benchmarks based on your own data.
 
 ## Performance
-Here's some test output:
+Here's test output from some completely arbitrary input showing size of serialized data at 35% of BinaryFormatter and about twice the speed.
 ```
-Release
 Modules.JsonNet.JsonNetFormatter
 Size: 1736
 Serialization: 00:00:00.5210129
@@ -39,5 +38,5 @@ ms.Position = 0;
 object clone = formatter.Deserialize(ms);
 ```
 ## Download / install
-Nuget: https://www.nuget.org/packages/OrigoDB.JsonNetFormatter/
-Binary: https://github.com/DevrexLabs/Modules.JsonNetFormatter/releases
+* Nuget: https://www.nuget.org/packages/OrigoDB.JsonNetFormatter/
+* Binary zip: https://github.com/DevrexLabs/Modules.JsonNetFormatter/releases
