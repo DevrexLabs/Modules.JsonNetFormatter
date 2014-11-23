@@ -1,19 +1,26 @@
 Modules.JsonNetFormatter
 =====================
-An IFormatter implementation based on Newtonsoft.Json serialization.
+An IFormatter implementation based on Newtonsoft.Json serialization intended as an alternative to the default `BinaryFormatter` used by OrigoDB for messages and data. It can also be used independently.
 
-Intended as a replacement for `BinaryFormatter` used by OrigoDB for snapshots, the command journal, requests and response.
-OrigoDB snapshots are arbitrarily complex object graphs. Deserialization needs to recreate an identical object graph as the one serialized. 
+OrigoDB snapshots are arbitrarily complex object graphs. Deserialization needs to recreate an identical object graph as the one serialized.
 
 ## Why?
-The major benefits are readability, interoperability and maintainability. We ran a single test on a
-small (8.6k binary serialized, 3.6k json serialized) but complex graph. Serialization speed was slightly
-slower but deserialization was about 25% faster. Size is about 60% smaller which not only requires
-less storage for snapshots and journal but also means less i/o. Test is included.
+The major benefits are readability, interoperability and maintainability. But performance in general is probably better too. You should run benchmarks based on your own data.
 
-Note! This is based on NET 4.5. Using NET 4.0 serialization/deserialization speed is about twice as fast as BinaryFormatter.
+## Performance
+Here's some test output:
+```
+Release
+Modules.JsonNet.JsonNetFormatter
+Size: 1736
+Serialization: 00:00:00.5210129
+Deserialization: 00:00:00.5948599
 
-See more about OrigoDB on the project page: http://devrexlabs.github.io/
+System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+Size: 4953
+Serialization: 00:00:00.9770694
+Deserialization: 00:00:01.2388305
+```
 
 ## Specification
 * All types must be marked with `SerializableAttribute`
@@ -31,4 +38,6 @@ formatter.Serialize(ms, someObjectRef);
 ms.Position = 0;
 object clone = formatter.Deserialize(ms);
 ```
-
+## Download / install
+Nuget: https://www.nuget.org/packages/OrigoDB.JsonNetFormatter/
+Binary: https://github.com/DevrexLabs/Modules.JsonNetFormatter/releases

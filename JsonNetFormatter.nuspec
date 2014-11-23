@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>OrigoDB.JsonNetFormatter</id>
+	<title>OrigoDB JsonNetFormatter</title>
+    <version>0.1.0</version>
+    <authors>Robert Friberg</authors>
+    <copyright>Devrex Labs</copyright>
+    <summary>
+		An IFormatter implementation based on NewtonSoft.Json
+	</summary>
+    <description>
+		An IFormatter implementation based on NewtonSoft.Json
+    </description>
+    <projectUrl>https://github.com/DevrexLabs/Modules.JsonNetFormatter</projectUrl>
+	<iconUrl>http://devrexlabs.com/Content/icons/favicon.ico</iconUrl>
+    <licenseUrl>https://github.com/DevrexLabs/Modules.JsonNetFormatter/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>https://github.com/DevrexLabs/Modules.JsonNetFormatter</releaseNotes>
+    <tags>OrigoDB in-memory imdb nosql database</tags>
+	    <dependencies>
+		<dependency id="NewtonSoft.Json" version="6.0.6"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="build/OrigoDb.JsonNetFormatter.dll" target="lib\net40" />
+    <file src="build/OrigoDb.JsonNetFormatter.pdb" target="lib\net40" />
+    <file src="src/Modules.JsonNetFormatter/**/*.cs" target="src" />
+  </files>
+</package>

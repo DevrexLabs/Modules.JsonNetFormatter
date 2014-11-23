@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Modules.JsonNet;
@@ -44,9 +43,6 @@ namespace JsonNet.Test
 
             model.Categories.Add(cat.Name, cat);
 
-            var subModel = model.ChildFor<MySubModel>();
-            subModel.AddModel(model);
-            subModel.AddModel(subModel);
             model.AddThing(null);
             model.AddThing(new SubThing(3, "Fish") { DingDong = "Woohoo!" });
             return model;
@@ -68,31 +64,6 @@ namespace JsonNet.Test
         public void Public_field_is_initialized()
         {
             Assert.IsNotNull(_target.Collection);
-        }
-
-        [Test]
-        public void Inherited_field_is_assigned()
-        {
-            //private field of OrigoDB.Core.Model
-            var inheritedFieldValue = _target.GetType().BaseType
-                .GetField("_children", BindingFlags.Instance | BindingFlags.NonPublic)
-                .GetValue(_target);
-            Assert.IsNotNull(inheritedFieldValue);
-        }
-
-        [Test]
-        public void Object_in_inherited_collection_is_populated()
-        {
-            var subModel = _target.ChildFor<MySubModel>();
-            Assert.AreEqual(2, subModel.Ugg.Count);
-        }
-
-        [Test]
-        public void Objects_in_inherited_collection_have_correct_refs()
-        {
-            var subModel = _target.ChildFor<MySubModel>();
-            Assert.IsTrue(subModel.Ugg.Values.Contains(subModel));
-            Assert.IsTrue(subModel.Ugg.Values.Contains(_target));
         }
 
         [Test]
