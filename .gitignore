@@ -6,24 +6,20 @@
 *.user
 *.sln.docstates
 
-#LiveDomain snapshot and journal files
+#OrigoDB snapshot and journal files
 *.snapshot
 *.journal
 
+*.zip
+
 # Build results
 
-[Dd]ebug/
+[Dd]ebug*/
 [Rr]elease/
-x64/
+
 build/
-[Bb]in/
-[Oo]bj/
 
-# Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
-!packages/*/build/
-
-# MSTest test Results
-[Tt]est[Rr]esult*/
+[Tt]est[Rr]esult
 [Bb]uild[Ll]og.*
 
 *_i.c
@@ -49,16 +45,6 @@ build/
 
 *.log
 *.scc
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.log
-*.scc
-
-
 # Visual C++ cache files
 ipch/
 *.aps
@@ -66,30 +52,24 @@ ipch/
 *.opensdf
 *.sdf
 
-*.cachefile
-
-
 # Visual Studio profiler
 *.psess
 *.vsp
-*.vspx
 
 # Guidance Automation Toolkit
 *.gpState
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
+
 *.[Rr]e[Ss]harper
-
-# TeamCity is a build add-in
-_TeamCity*
-
-# DotCover is a Code Coverage Tool
-*.dotCover
 
 # NCrunch
 *.ncrunch*
 .*crunch*.local.xml
+
+# Installshield output folder
+[Ee]xpress
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
@@ -122,33 +102,6 @@ ClientBin
 *.[Pp]ublish.xml
 
 Generated_Code #added for RIA/Silverlight projects
-publish/
-
-# Publish Web Output
-*.Publish.xml
-*.pubxml
-
-# Windows Azure Build Output
-csx
-*.build.csdef
-
-# Windows Store app package directory
-AppPackages/
-
-# Others
-sql/
-*.Cache
-ClientBin/
-[Ss]tyle[Cc]op.*
-~$*
-*~
-*.dbmdl
-*.[Pp]ublish.xml
-*.pfx
-*.publishsettings
-
-# RIA/Silverlight projects
-Generated_Code/
 
 # Backup & report files from converting an old project file to a newer
 # Visual Studio version. Backup files are not needed, because we have git ;-)
@@ -157,25 +110,5 @@ Backup*/
 UpgradeLog*.XML
 
 # NuGet
-UpgradeLog*.htm
-
-# SQL Server files
-App_Data/*.mdf
-App_Data/*.ldf
-
-# =========================
-# Windows detritus
-# =========================
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Mac crap
-.DS_Store
+packages/
+*.nupkg
