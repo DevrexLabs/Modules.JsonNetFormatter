@@ -31,8 +31,8 @@ namespace Modules.JsonNet
                 },
                 PreserveReferencesHandling = PreserveReferencesHandling.All,
                 TypeNameHandling = TypeNameHandling.All,
-                TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple
-                
+                TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
+                MissingMemberHandling = MissingMemberHandling.Ignore
             };
             _serializer = JsonSerializer.Create(settings);
         }
